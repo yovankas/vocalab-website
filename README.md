@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vocalab Website
 
-## Getting Started
+Welcome to the **Vocalab Website**! This project is designed to provide a virtual lab experience for learning English. It's deployed and accessible on [vocalab.vercel.app](https://vocalab.vercel.app).
 
-First, run the development server:
+## Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+You can access the live version of the website at the following link:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[Vocalab Website - Live Demo](https://vocalab.vercel.app)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Local Development
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+For a better experience, we recommend running the project locally. Follow the steps below to set up the project on your local machine:
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v16 or higher)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
+- Git
+
+### Setup
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/yovankas/vocalab-local.git
+   cd vocalab-local
+   ```
+
+2. Install the required dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
+
+### Notes
+
+- The project uses the [Geist](https://geist-ui.dev/) font, automatically optimized and loaded by Next.js.
+- For any issues or suggestions, feel free to open an issue on the [GitHub repository](https://github.com/yovankas/vocalab-website).
+
+## Deployment
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/), which is the platform built by the creators of Next.js.
+
+For more details, refer to the [Next.js deployment documentation](https://nextjs.org/docs/deployment).
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Next.js Documentation](https://nextjs.org/docs) - Learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - An interactive tutorial to get started with Next.js.
+- [Next.js GitHub Repository](https://github.com/vercel/next.js) - Explore the source code and contribute!
