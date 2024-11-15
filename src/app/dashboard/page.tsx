@@ -13,14 +13,14 @@ interface StatCardProps {
   value: string | number;
 }
 
-// function StatCard({ title, value }: StatCardProps) {
-//   return (
-//     <div className="bg-white rounded-xl shadow-md p-6 text-center">
-//       <h3 className="text-lg font-semibold mb-2">{title}</h3>
-//       <p className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">{value}</p>
-//     </div>
-//   )
-// }
+function StatCard({ title, value }: StatCardProps) {
+  return (
+    <div className="bg-white rounded-xl shadow-md p-6 text-center">
+      <h3 className="text-lg font-semibold mb-2">{title}</h3>
+      <p className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">{value}</p>
+    </div>
+  )
+}
 
 export default function DashboardPage() {
   const [user, setUser] = useState<SupabaseUser | null>(null)
@@ -139,15 +139,6 @@ export default function DashboardPage() {
           </section>
         </div>
       </main>
-    </div>
-  )
-}
-
-function StatCard({ title, value }) {
-  return (
-    <div className="bg-white rounded-xl shadow-md p-6 text-center">
-      <h3 className="text-lg font-semibold mb-2">{title}</h3>
-      <p className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">{value}</p>
     </div>
   )
 }
