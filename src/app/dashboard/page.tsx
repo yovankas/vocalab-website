@@ -8,6 +8,20 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import type { User as SupabaseUser } from '@supabase/supabase-js'
 import { useUserProgress } from '@/hooks/useUserProgress'
 
+interface StatCardProps {
+  title: string;
+  value: string | number;
+}
+
+function StatCard({ title, value }: StatCardProps) {
+  return (
+    <div className="bg-white rounded-xl shadow-md p-6 text-center">
+      <h3 className="text-lg font-semibold mb-2">{title}</h3>
+      <p className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">{value}</p>
+    </div>
+  )
+}
+
 export default function DashboardPage() {
   const [user, setUser] = useState<SupabaseUser | null>(null)
   const { progress, isLoading, fetchProgress } = useUserProgress()
