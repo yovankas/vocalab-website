@@ -6,7 +6,9 @@ const nextConfig: NextConfig = {
     domains: ['media.istockphoto.com', 'avatars.githubusercontent.com', 'lh3.googleusercontent.com'],
   },
   experimental: {
-    serverActions: true,
+    serverActions: {
+      allowedOrigins: ['localhost:3000']
+    }
   },
   // Add this to ensure proper routing
   trailingSlash: false,
