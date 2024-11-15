@@ -8,27 +8,27 @@ export default function AuthComponent() {
   const [session, setSession] = useState<Session | null>(null)
 
   useEffect(() => {
+    // Fetch session on component mount
     const fetchSession = async () => {
       const { data: { session } } = await supabase.auth.getSession()
-      setSession(session)  // No comparison with setSession
+      setSession(session)  // Set the session state
     }
 
     fetchSession()
 
+    // Listen for changes in authentication state
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (_event: AuthChangeEvent, newSession: Session | null) => {
-        // Compare the new session's access_token with the current session's
-        if (newSession?.access_token !== session?.access_token) {
-          setSession(newSession)
-        }
+        setSession(newSession)  // Update session on state change
       }
     )
 
     return () => {
-      subscription.unsubscribe()
+      subscription.unsubscribe()  // Cleanup subscription
     }
-  }, [session]) // Depend on the session so it updates properly
+  }, []) // Only run once when the component is mounted
 
+  // Render Auth component if no session is found
   if (!session) {
     return (
       <Auth
@@ -39,9 +39,10 @@ export default function AuthComponent() {
     )
   }
 
+  // Render dashboard if session exists
   return (
     <div>
-      <p>Logged in as {session?.user?.email}</p>
+      <p>Logged in as {session.user?.email}</p>
       <button onClick={() => supabase.auth.signOut()}>Sign out</button>
     </div>
   )
