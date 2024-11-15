@@ -31,7 +31,7 @@ export default function Level1() {
       }
     }
     checkUser()
-  }, [router, supabase.auth])
+  }, [router, supabase.auth, startLevel])
 
   const startLevel = () => {
     const shuffledWords = [...level1Data.words]

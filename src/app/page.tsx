@@ -140,7 +140,6 @@ export default function LandingPage() {
                   "Etymology insights",
                   "Spaced repetition system"
                 ]}
-                gdprCompliant
               />
             </div>
           </section>
@@ -149,7 +148,7 @@ export default function LandingPage() {
   )
 }
 
-function FeatureCard({ title, description, features, gdprCompliant = false }) {
+function FeatureCard({ title, description, features}) {
   return (
     <div className="relative overflow-hidden rounded-2xl group">
       <Image

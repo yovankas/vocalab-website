@@ -7,7 +7,7 @@ import { Auth } from '@supabase/auth-ui-react'
 import { ThemeSupa } from '@supabase/auth-ui-shared'
 
 export default function AuthForm({ mode }: { mode: 'signin' | 'signup' }) {
-  const [error, setError] = useState<string | null>(null)
+  const [error] = useState<string | null>(null)
   const router = useRouter()
   const supabase = createClientComponentClient()
 

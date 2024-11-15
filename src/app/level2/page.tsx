@@ -32,7 +32,7 @@ export default function Level2() {
       }
     }
     checkUser()
-  }, [router, supabase.auth])
+  }, [router, supabase.auth, startLevel])
 
   const startLevel = () => {
     setMatches(level2Data)

@@ -10,7 +10,7 @@ import { useUserProgress } from '@/hooks/useUserProgress'
 
 export default function DashboardPage() {
   const [user, setUser] = useState<SupabaseUser | null>(null)
-  const { progress, isLoading, error, fetchProgress } = useUserProgress()
+  const { progress, isLoading, fetchProgress } = useUserProgress()
   const router = useRouter()
   const supabase = createClientComponentClient()
 
@@ -25,7 +25,7 @@ export default function DashboardPage() {
       }
     }
     checkUser()
-  }, [router, supabase.auth])
+  }, [router, supabase.auth, fetchProgress])
 
   const startLevel = (level: number) => {
     router.push(`/level${level}`)
