@@ -34,7 +34,7 @@ export default function SignUpPage() {
 
       router.push('/dashboard')
     } catch (error) {
-      setError(error.message)
+      setError((error as Error).message)
     }
   }
 

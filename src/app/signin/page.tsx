@@ -29,7 +29,7 @@ export default function SignInPage() {
       router.push('/dashboard')
     } catch (error) {
       console.error('Sign in error:', error)
-      setError(error.message)
+      setError((error as Error).message)
     }
   }
 
