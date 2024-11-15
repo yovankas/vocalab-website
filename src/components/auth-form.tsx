@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { Auth } from '@supabase/auth-ui-react'
@@ -11,12 +11,19 @@ export default function AuthForm({ mode }: { mode: 'signin' | 'signup' }) {
   const router = useRouter()
   const supabase = createClientComponentClient()
 
-  const handleAuthStateChange = async (event: any, session: any) => {
-    if (event === 'SIGNED_IN' && session) {
-      console.log('User signed in:', session)
-      router.push('/dashboard')
+  useEffect(() => {
+    const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_IN' && session) {
+        console.log('User signed in:', session)
+        router.push('/dashboard')
+      }
+    })
+
+    // Cleanup the listener on unmount
+    return () => {
+      authListener.subscription.unsubscribe()
     }
-  }
+  }, [router, supabase])
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
@@ -44,7 +51,6 @@ export default function AuthForm({ mode }: { mode: 'signin' | 'signup' }) {
                 showLinks={false}
                 providers={[]}
                 redirectTo={`${window.location.origin}/auth/callback`}
-                onAuthStateChange={handleAuthStateChange}
               />
             </div>
           </div>

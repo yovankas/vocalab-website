@@ -22,6 +22,13 @@ export default function Level2() {
     { sentence: "They will have finished the project by next week", tense: "Future Perfect" }
   ]
 
+  const startLevel = () => {
+    setMatches(level2Data)
+    const shuffledTenses = ["Present Simple", "Past Continuous", "Future Perfect"]
+    shuffleArray(shuffledTenses)
+    setTenses(shuffledTenses)
+  }
+  
   useEffect(() => {
     const checkUser = async () => {
       const { data: { user } } = await supabase.auth.getUser()
@@ -33,13 +40,6 @@ export default function Level2() {
     }
     checkUser()
   }, [router, supabase.auth, startLevel])
-
-  const startLevel = () => {
-    setMatches(level2Data)
-    const shuffledTenses = ["Present Simple", "Past Continuous", "Future Perfect"]
-    shuffleArray(shuffledTenses)
-    setTenses(shuffledTenses)
-  }
 
   const shuffleArray = (array: string[]) => {
     for (let i = array.length - 1; i > 0; i--) {

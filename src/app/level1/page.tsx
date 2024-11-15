@@ -21,6 +21,13 @@ export default function Level1() {
     words: ["The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"]
   }
 
+  const startLevel = () => {
+    const shuffledWords = [...level1Data.words]
+    shuffleArray(shuffledWords)
+    setWords(shuffledWords)
+    setSentence([])
+  }
+  
   useEffect(() => {
     const checkUser = async () => {
       const { data: { user } } = await supabase.auth.getUser()
@@ -32,13 +39,6 @@ export default function Level1() {
     }
     checkUser()
   }, [router, supabase.auth, startLevel])
-
-  const startLevel = () => {
-    const shuffledWords = [...level1Data.words]
-    shuffleArray(shuffledWords)
-    setWords(shuffledWords)
-    setSentence([])
-  }
 
   const shuffleArray = (array: string[]) => {
     for (let i = array.length - 1; i > 0; i--) {

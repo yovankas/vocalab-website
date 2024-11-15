@@ -148,7 +148,13 @@ export default function LandingPage() {
   )
 }
 
-function FeatureCard({ title, description, features}) {
+interface FeatureCardProps {
+  title: string;
+  description: string;
+  features: string[];
+}
+
+function FeatureCard({ title, description, features}: FeatureCardProps) {
   return (
     <div className="relative overflow-hidden rounded-2xl group">
       <Image
